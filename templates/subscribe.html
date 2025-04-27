@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subscribe - LaslesVPN</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Subscribe</h1>
+    <form method="POST">
+      {{ form.hidden_tag() }}
+
+      <div>
+        {{ form.first_name.label }}<br>
+        {{ form.first_name(size=32) }}
+      </div>
+      <div>
+        {{ form.last_name.label }}<br>
+        {{ form.last_name(size=32) }}
+      </div>
+      <div>
+        {{ form.email.label }}<br>
+        {{ form.email(size=32) }}
+      </div>
+      <div>
+        {{ form.submit() }}
+      </div>
+    </form>
+  </div>
+</body>
+</html>
