@@ -32,16 +32,21 @@ def subscribe():
         db.session.commit()
 
         # Отправка письма
-        msg = Message('Подписка на сервис!',
-                      sender=app.config['MAIL_USERNAME'],
-                      recipients=[form.email.data])
-        msg.body = f"Спасибо за подписку, {form.first_name.data}!"
-        mail.send(msg)
+        # msg = Message('Подписка на сервис!',
+        #               sender=app.config['MAIL_USERNAME'],
+        #               recipients=[form.email.data])
+        # msg.body = f"Спасибо за подписку, {form.first_name.data}!"
+        # mail.send(msg)
 
-        flash('Subscription successful! Check your email!', 'success')
-        return redirect(url_for('index'))
+        # flash('Subscription successful! Check your email!', 'success')
+        return redirect(url_for('thank_ypu'))
+        # return redirect(url_for('index'))
 
     return render_template('subscribe.html', form=form)
+
+@app.route("/thank-you")
+def thank_you():
+    return render_template("thank_you.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
